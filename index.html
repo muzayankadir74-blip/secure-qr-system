@@ -4,527 +4,279 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Secure QR System</title>
-
+<title>ASLI BALTENA | Authentic Spices</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script src="https://unpkg.com/html5-qrcode"></script>
 
 <style>
-:root {
-  --bg:#0f172a;
-  --card:#1e293b;
-  --text:#f8fafc;
-  --muted:#94a3b8;
-  --blue:#38bdf8;
-  --green:#22c55e;
-  --red:#ef4444;
+*{box-sizing:border-box}
+body{
+ margin:0;padding:18px;background:#f5f1e8;
+ color:#29251d;font-family:Arial,sans-serif
 }
-* {box-sizing:border-box}
-body {
-  margin:0;
-  padding:18px;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Arial,sans-serif;
+.container{max-width:650px;margin:auto}
+.card{
+ background:white;padding:22px;margin:15px 0;
+ border-radius:14px;box-shadow:0 3px 12px #0001
 }
-.container {max-width:850px;margin:auto}
-header {text-align:center;padding:15px 0}
-header h1 {color:var(--blue);margin-bottom:6px}
-header p {color:var(--muted)}
-.card {
-  background:var(--card);
-  padding:20px;
-  margin:15px 0;
-  border-radius:14px;
+header{text-align:center;padding:25px 10px}
+.brand{color:#946019;font-size:34px;font-weight:bold}
+.subtitle{color:#665b4b}
+h2{color:#805018}
+button{
+ width:100%;padding:14px;margin-top:12px;
+ border:0;border-radius:8px;background:#946019;
+ color:white;font-weight:bold;font-size:16px
 }
-h2 {font-size:20px;margin-top:0}
-label {display:block;margin:13px 0 6px;color:#cbd5e1}
-input {
-  width:100%;
-  padding:13px;
-  border-radius:8px;
-  border:1px solid #475569;
-  background:#0f172a;
-  color:white;
-  font-size:16px;
+.secondary{background:#475569}
+input{
+ width:100%;padding:13px;margin-top:7px;
+ border:1px solid #bbb;border-radius:8px;font-size:16px
 }
-button {
-  width:100%;
-  padding:13px;
-  margin-top:12px;
-  border:0;
-  border-radius:8px;
-  background:var(--blue);
-  color:#082f49;
-  font-weight:bold;
-  font-size:16px;
-  cursor:pointer;
+label{display:block;margin-top:14px}
+.hidden{display:none!important}
+.contact{
+ display:block;text-decoration:none;text-align:center;
+ background:#167c4b;color:white;padding:14px;
+ border-radius:8px;margin-top:10px;font-weight:bold
 }
-button.secondary {background:#475569;color:white}
-button.danger {background:#991b1b;color:white}
-button:disabled {opacity:.5}
-.hidden {display:none!important}
-.message {
-  padding:13px;
-  margin-top:12px;
-  border-radius:8px;
-  overflow-wrap:anywhere;
+#qrcode{
+ display:flex;justify-content:center;background:white;
+ padding:15px;margin-top:15px
 }
-.success {background:#14532d;color:#dcfce7}
-.error {background:#7f1d1d;color:#fee2e2}
-.info {background:#164e63;color:#cffafe}
-#qrcode {
-  display:flex;
-  justify-content:center;
-  background:white;
-  padding:15px;
-  margin-top:15px;
-  border-radius:8px;
-  min-height:20px;
-}
-#qrcode img {max-width:100%}
-.result {
-  text-align:center;
-  padding:22px;
-  margin-top:15px;
-  border-radius:10px;
-  font-size:22px;
-  font-weight:bold;
-}
-.genuine {background:#14532d;color:#dcfce7}
-.already {background:#854d0e;color:#fef3c7}
-.invalid {background:#7f1d1d;color:#fee2e2}
-table {width:100%;border-collapse:collapse;font-size:13px}
-td,th {padding:10px;border-bottom:1px solid #475569;text-align:left}
-.table-wrap {overflow-x:auto}
-small {color:var(--muted)}
-#reader {width:100%;margin-top:15px}
+#qrcode img{max-width:100%}
+.message{padding:12px;border-radius:8px;margin-top:12px}
+.success{background:#dcfce7;color:#166534}
+.error{background:#fee2e2;color:#991b1b}
+.center{text-align:center}
+small{color:#777}
 </style>
 </head>
 
 <body>
 <div class="container">
 
+<!-- PUBLIC BRAND PAGE -->
+<div id="publicPanel">
+
 <header>
-  <h1>SECURE QR SYSTEM</h1>
-  <p>Product Authentication Platform</p>
+ <div class="brand">ASLI BALTENA</div>
+ <p class="subtitle">Authentic Ethiopian Spices</p>
+ <p>Mi'eessituuwwan qulqullina qabu</p>
 </header>
 
-<!-- LOGIN -->
-<section class="card" id="loginPanel">
-  <h2>Admin Login</h2>
+<div class="card center">
+ <h2>WELCOME TO ASLI BALTENA</h2>
+ <p>Thank you for choosing our products.</p>
+ <p>ASLI BALTENA brings you authentic Ethiopian spices and seasonings.</p>
+ <p>Oomisha mi'eessituu qulqullina qabu isinitti dhiheessina.</p>
+ <p>Thank you for trusting our brand!</p>
+</div>
 
-  <label>Email</label>
-  <input id="loginEmail" type="email"
-    value="muzayankadir74@gmail.com"
-    placeholder="Admin email">
+<div class="card">
+ <h2>Our Products</h2>
+ <p>• Berbere</p>
+ <p>• Shiro</p>
+ <p>• Mitmita</p>
+ <p>• Other Ethiopian spices and seasonings</p>
+</div>
 
-  <label>Password</label>
-  <input id="loginPassword" type="password"
-    placeholder="Enter your password">
+<div class="card">
+ <h2>Contact ASLI BALTENA</h2>
+ <p>For questions, orders and customer support:</p>
 
-  <button onclick="login()">Login</button>
-  <div id="loginMessage"></div>
+ <a class="contact"
+ href="https://wa.me/251927002527" target="_blank">
+ WhatsApp: +251 927 002 527
+ </a>
+
+ <a class="contact"
+ href="https://wa.me/251716639827" target="_blank">
+ WhatsApp: +251 716 639 827
+ </a>
+</div>
+
+<div class="center">
+ <button class="secondary" onclick="showLogin()">
+ Admin Login
+ </button>
+ <small>ASLI BALTENA Product Information</small>
+</div>
+</div>
+
+<!-- ADMIN LOGIN -->
+<section class="card hidden" id="loginPanel">
+ <h2>Admin Login</h2>
+
+ <label>Email</label>
+ <input id="loginEmail" type="email"
+ value="muzayankadir74@gmail.com">
+
+ <label>Password</label>
+ <input id="loginPassword" type="password"
+ placeholder="Enter admin password">
+
+ <button onclick="login()">Login</button>
+ <button class="secondary" onclick="showPublic()">Back</button>
+ <div id="loginMessage"></div>
 </section>
 
 <!-- ADMIN DASHBOARD -->
 <div id="dashboard" class="hidden">
 
-  <section class="card">
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
-      <div>
-        <h2>Admin Dashboard</h2>
-        <small id="adminEmail"></small>
-      </div>
-      <button class="danger" style="width:auto;margin:0"
-        onclick="logout()">Logout</button>
-    </div>
-  </section>
+ <section class="card">
+  <h2>ASLI BALTENA Admin</h2>
+  <p id="adminEmail"></p>
+  <button class="secondary" onclick="logout()">Logout</button>
+ </section>
 
-  <!-- ADD PRODUCT -->
-  <section class="card">
-    <h2>1. Register Product</h2>
+ <section class="card center">
+  <h2>Universal Brand QR Code</h2>
+  <p>One QR code for all ASLI BALTENA products.</p>
 
-    <label>Product Name</label>
-    <input id="productName" placeholder="Example: Original Oil">
+  <button onclick="generateQR()">Generate Universal QR</button>
 
-    <label>Product Code</label>
-    <input id="productCode" placeholder="Example: OIL-001">
+  <div id="qrcode"></div>
+  <div id="qrLink" class="message success"></div>
 
-    <button onclick="addProduct()">Save Product & Generate QR</button>
-    <div id="productMessage"></div>
-
-    <div id="qrSection" class="hidden">
-      <h3 id="qrProductName"></h3>
-      <div id="qrcode"></div>
-      <div id="qrLink" class="message info"></div>
-      <button class="secondary" onclick="copyQRLink()">Copy QR Link</button>
-    </div>
-  </section>
-
-  <!-- SCANNER -->
-  <section class="card">
-    <h2>2. Verify Product QR</h2>
-    <p><small>Scan a product QR code using your phone camera.</small></p>
-
-    <button onclick="startScanner()">Open Camera Scanner</button>
-    <button class="secondary" onclick="stopScanner()">Stop Scanner</button>
-
-    <div id="reader"></div>
-
-    <label>Or enter QR token manually</label>
-    <input id="manualToken" placeholder="Paste QR token or verification link">
-    <button onclick="verifyManual()">Verify Product</button>
-
-    <div id="verificationResult"></div>
-  </section>
-
-  <!-- HISTORY -->
-  <section class="card">
-    <h2>3. Scan History</h2>
-    <button class="secondary" onclick="loadHistory()">Refresh History</button>
-    <div id="historyMessage"></div>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Product ID</th>
-            <th>Date</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody id="historyBody"></tbody>
-      </table>
-    </div>
-  </section>
+  <button onclick="downloadQR()">Download QR Image</button>
+  <button class="secondary" onclick="copyQR()">Copy QR Link</button>
+ </section>
 
 </div>
 </div>
 
 <script>
 const SUPABASE_URL =
-  "https://cfmgujkiqczqjyiqbtqy.supabase.co";
+ "https://cfmgujkiqczqjyiqbtqy.supabase.co";
 
 const SUPABASE_KEY =
-  "sb_publishable_GxnrAoilOeAHve__aMQJbQ_Z1q9KDV3";
+ "sb_publishable_GxnrAoilOeAHve__aMQJbQ_Z1q9KDV3";
 
 const db = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
+ SUPABASE_URL,SUPABASE_KEY
 );
 
-let scanner = null;
-let scannerRunning = false;
-let latestQRLink = "";
+let universalLink = "";
 
-// LOGIN
-async function login() {
-  const email = document.getElementById("loginEmail").value.trim();
-  const password = document.getElementById("loginPassword").value;
-  const box = document.getElementById("loginMessage");
-
-  if (!email || !password) {
-    box.innerHTML = '<div class="message error">Enter email and password.</div>';
-    return;
-  }
-
-  box.innerHTML = '<div class="message info">Logging in...</div>';
-
-  const {data, error} = await db.auth.signInWithPassword({
-    email,
-    password
-  });
-
-  if (error) {
-    box.innerHTML = '<div class="message error"></div>';
-    box.firstChild.textContent = error.message;
-    return;
-  }
-
-  await showDashboard(data.user);
+function showLogin(){
+ document.getElementById("publicPanel").classList.add("hidden");
+ document.getElementById("loginPanel").classList.remove("hidden");
 }
 
-// CHECK ADMIN
-async function showDashboard(user) {
-  const {data, error} = await db.rpc("is_qr_admin");
-
-  if (error || data !== true) {
-    await db.auth.signOut();
-    document.getElementById("loginMessage").innerHTML =
-      '<div class="message error">This account does not have admin permission.</div>';
-    return;
-  }
-
-  document.getElementById("loginPanel").classList.add("hidden");
-  document.getElementById("dashboard").classList.remove("hidden");
-  document.getElementById("adminEmail").textContent = user.email;
-
-  loadHistory();
+function showPublic(){
+ document.getElementById("loginPanel").classList.add("hidden");
+ document.getElementById("publicPanel").classList.remove("hidden");
 }
 
-// LOGOUT
-async function logout() {
-  await stopScanner();
+async function login(){
+ const email=document.getElementById("loginEmail").value.trim();
+ const password=document.getElementById("loginPassword").value;
+ const box=document.getElementById("loginMessage");
+
+ box.textContent="Logging in...";
+
+ const {data,error}=await db.auth.signInWithPassword({
+  email,password
+ });
+
+ if(error){
+  box.className="message error";
+  box.textContent=error.message;
+  return;
+ }
+
+ await showDashboard(data.user);
+}
+
+async function showDashboard(user){
+ const {data,error}=await db.rpc("is_qr_admin");
+
+ if(error || data!==true){
   await db.auth.signOut();
-  location.reload();
+  const box=document.getElementById("loginMessage");
+  box.className="message error";
+  box.textContent="Admin permission required.";
+  return;
+ }
+
+ document.getElementById("publicPanel").classList.add("hidden");
+ document.getElementById("loginPanel").classList.add("hidden");
+ document.getElementById("dashboard").classList.remove("hidden");
+ document.getElementById("adminEmail").textContent=user.email;
 }
 
-// CREATE PRODUCT AND QR
-async function addProduct() {
-  const name = document.getElementById("productName").value.trim();
-  const code = document.getElementById("productCode").value.trim();
-  const box = document.getElementById("productMessage");
-
-  if (!name || !code) {
-    box.innerHTML =
-      '<div class="message error">Enter product name and product code.</div>';
-    return;
-  }
-
-  box.innerHTML =
-    '<div class="message info">Saving product...</div>';
-
-  const {data, error} = await db
-    .from("products")
-    .insert({
-      product_name:name,
-      product_code:code
-    })
-    .select("id,product_name,product_code,qr_token")
-    .single();
-
-  if (error) {
-    box.innerHTML = '<div class="message error"></div>';
-    box.firstChild.textContent = error.message;
-    return;
-  }
-
-  const baseURL = location.href.split("?")[0].split("#")[0];
-  const verifyURL = baseURL + "?token=" +
-    encodeURIComponent(data.qr_token);
-
-  latestQRLink = verifyURL;
-
-  document.getElementById("qrProductName").textContent =
-    data.product_name + " (" + data.product_code + ")";
-
-  document.getElementById("qrcode").innerHTML = "";
-
-  new QRCode(document.getElementById("qrcode"), {
-    text:verifyURL,
-    width:220,
-    height:220,
-    correctLevel:QRCode.CorrectLevel.H
-  });
-
-  document.getElementById("qrLink").textContent = verifyURL;
-  document.getElementById("qrSection").classList.remove("hidden");
-
-  box.innerHTML =
-    '<div class="message success">Product saved and QR generated successfully.</div>';
-
-  document.getElementById("productName").value = "";
-  document.getElementById("productCode").value = "";
-
-  if (location.protocol === "file:" ||
-      location.hostname === "localhost") {
-    box.innerHTML +=
-      '<div class="message info">Important: Publish this app on GitHub Pages before distributing this QR. Local links will not work on other phones.</div>';
-  }
-
-  loadHistory();
+async function logout(){
+ await db.auth.signOut();
+ location.reload();
 }
 
-// COPY QR LINK
-async function copyQRLink() {
-  if (!latestQRLink) return;
+function generateQR(){
+ if(!window.QRCode){
+  alert("QR library not loaded. Check internet.");
+  return;
+ }
 
-  try {
-    await navigator.clipboard.writeText(latestQRLink);
-    alert("QR link copied.");
-  } catch (e) {
-    prompt("Copy this link:", latestQRLink);
-  }
+ universalLink =
+  location.origin + location.pathname;
+
+ const box=document.getElementById("qrcode");
+ box.innerHTML="";
+
+ new QRCode(box,{
+  text:universalLink,
+  width:260,
+  height:260,
+  correctLevel:QRCode.CorrectLevel.H
+ });
+
+ document.getElementById("qrLink").textContent=universalLink;
 }
 
-// GET TOKEN FROM QR
-function extractToken(raw) {
-  raw = raw.trim();
+function downloadQR(){
+ const box=document.getElementById("qrcode");
+ const canvas=box.querySelector("canvas");
+ const img=box.querySelector("img");
 
-  try {
-    const url = new URL(raw);
-    const token = url.searchParams.get("token");
-    if (token) return token;
-  } catch (e) {}
+ let imageURL="";
 
-  return raw;
+ if(canvas){
+  imageURL=canvas.toDataURL("image/png");
+ }else if(img){
+  imageURL=img.src;
+ }
+
+ if(!imageURL){
+  alert("Generate the QR code first.");
+  return;
+ }
+
+ const link=document.createElement("a");
+ link.href=imageURL;
+ link.download="ASLI-BALTENA-UNIVERSAL-QR.png";
+ link.click();
 }
 
-// VERIFY QR
-async function verifyToken(token) {
-  const resultBox = document.getElementById("verificationResult");
+async function copyQR(){
+ if(!universalLink){
+  alert("Generate the QR code first.");
+  return;
+ }
 
-  if (!token) {
-    resultBox.innerHTML =
-      '<div class="result invalid">INVALID QR</div>';
-    return;
-  }
-
-  resultBox.innerHTML =
-    '<div class="message info">Checking product...</div>';
-
-  const {data, error} = await db.rpc("verify_product_qr", {
-    p_token:token
-  });
-
-  if (error) {
-    resultBox.innerHTML = '<div class="message error"></div>';
-    resultBox.firstChild.textContent = error.message;
-    return;
-  }
-
-  if (data.status === "GENUINE") {
-    resultBox.innerHTML = `
-      <div class="result genuine">GENUINE</div>
-      <div class="message success">
-        Product: ${safeText(data.product_name)}<br>
-        Code: ${safeText(data.product_code)}
-      </div>`;
-  } else if (data.status === "ALREADY_SCANNED") {
-    resultBox.innerHTML = `
-      <div class="result already">ALREADY SCANNED</div>
-      <div class="message info">
-        Product: ${safeText(data.product_name)}
-      </div>`;
-  } else {
-    resultBox.innerHTML =
-      '<div class="result invalid">INVALID QR</div>';
-  }
-
-  loadHistory();
+ try{
+  await navigator.clipboard.writeText(universalLink);
+  alert("QR link copied.");
+ }catch(e){
+  prompt("Copy this link:",universalLink);
+ }
 }
 
-// SAFE TEXT
-function safeText(value) {
-  const div = document.createElement("div");
-  div.textContent = value || "";
-  return div.innerHTML;
-}
+async function initialize(){
+ const {data}=await db.auth.getSession();
 
-// MANUAL VERIFY
-async function verifyManual() {
-  const raw = document.getElementById("manualToken").value;
-  const token = extractToken(raw);
-  await verifyToken(token);
-}
-
-// CAMERA SCANNER
-async function startScanner() {
-  if (scannerRunning) return;
-
-  if (!window.Html5Qrcode) {
-    alert("Camera scanner library could not load. Check internet.");
-    return;
-  }
-
-  scanner = new Html5Qrcode("reader");
-
-  try {
-    await scanner.start(
-      {facingMode:"environment"},
-      {fps:10, qrbox:{width:240,height:240}},
-      async (decodedText) => {
-        await stopScanner();
-        const token = extractToken(decodedText);
-        await verifyToken(token);
-      },
-      () => {}
-    );
-
-    scannerRunning = true;
-  } catch (error) {
-    alert("Camera could not start. Allow camera permission and use HTTPS.");
-  }
-}
-
-async function stopScanner() {
-  if (scanner && scannerRunning) {
-    try {
-      await scanner.stop();
-      await scanner.clear();
-    } catch(e) {}
-  }
-  scannerRunning = false;
-  scanner = null;
-}
-
-// SCAN HISTORY
-async function loadHistory() {
-  const body = document.getElementById("historyBody");
-  const message = document.getElementById("historyMessage");
-
-  const {data:scans, error} = await db
-    .from("qr_scans")
-    .select("id,product_id,scanned_at,scan_status")
-    .order("scanned_at",{ascending:false})
-    .limit(100);
-
-  if (error) {
-    message.innerHTML = '<div class="message error"></div>';
-    message.firstChild.textContent = error.message;
-    return;
-  }
-
-  body.innerHTML = "";
-
-  if (!scans || scans.length === 0) {
-    message.innerHTML =
-      '<div class="message info">No scans recorded yet.</div>';
-    return;
-  }
-
-  message.innerHTML = "";
-
-  scans.forEach(scan => {
-    const row = document.createElement("tr");
-
-    const productCell = document.createElement("td");
-    productCell.textContent = scan.product_id.slice(0,8);
-
-    const dateCell = document.createElement("td");
-    dateCell.textContent =
-      new Date(scan.scanned_at).toLocaleString();
-
-    const statusCell = document.createElement("td");
-    statusCell.textContent = scan.scan_status;
-
-    row.append(productCell,dateCell,statusCell);
-    body.appendChild(row);
-  });
-}
-
-// AUTO LOGIN
-async function initialize() {
-  const {data} = await db.auth.getSession();
-
-  if (data.session) {
-    await showDashboard(data.session.user);
-  }
-
-  // If QR opened with token, show verification panel
-  const params = new URLSearchParams(location.search);
-  const token = params.get("token");
-
-  if (token) {
-    document.getElementById("loginPanel").classList.add("hidden");
-
-    const dashboard = document.getElementById("dashboard");
-    dashboard.classList.remove("hidden");
-
-    // Public verification does not require admin login
-    await verifyToken(token);
-  }
+ if(data.session){
+  await showDashboard(data.session.user);
+ }
 }
 
 initialize();
